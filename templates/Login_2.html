@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> LOGIN </title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <style>
+            
+            body,html{
+                height: 100vh;
+            }
+            body{
+                background-color: rgb(245, 245, 245);
+                background-size:cover;
+                background-repeat: no-repeat;
+                background-attachment:fixed;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                
+                
+            }
+            .box{
+                height: 320px;
+                width: 600px;
+                border: 1px solid rgba(43,43,43,0.568);
+                position: relative;
+                border-radius: 15px;
+                background: inherit;
+                overflow: hidden;
+                margin: 10px;
+                
+            }
+            .box::before{
+                position: absolute;
+                content: '';
+                background: inherit;
+                height: 370px;
+                width: 800px;
+                left: -25px;
+                right: 0;
+                top: -25px;
+                bottom: 0;
+                box-shadow: inset 0 0 0 300px rgba(150,150, 150, 0.192);
+                filter: blur(25px);
+                border-radius: 15px;
+                
+                
+            }
+            .innerbox{
+                position:absolute;
+                text-align:center;
+                height: 370px;
+                width:450px;
+                right:70px;
+                bottom: -80px;
+            }
+            button:hover{
+                background-color: green;
+
+            }
+        </style>
+    </head>
+    <body>
+      <div class="box" style="position: absolute; top: 0px; height: 50px; width:100vh;">
+        <div  class="innerbox" style="position: absolute; top:0px; width: max-content; text-align: center;" > 
+          <h1> LIBRARY MANAGEMENT SYSTEM </h1>
+        </div>
+      </div>
+      <div style="  background: inherit; display: flex; width: max-content; ">
+        <div class ="box">
+          <div class="innerbox">
+              <form method="post" action="/login?client=ADMIN">
+                  <div class="mb-3">
+                    <h4> ADMIN </h4>
+                    <label  class="form-label">Username</label>
+                    <input type="text" class="form-control" name="User" aria-describedby="text" required>
+                    <div id="emailHelp" class="form-text"></div>
+                  </div>
+                  <div class="mb-3">
+                    <label  class="form-label">Password</label>
+                    <input type="password" class="form-control" name="passw" required>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                  
+                </form>
+          </div>
+        </div>
+        <div class ="box">
+          <div class="innerbox">
+              <form method="post" action="/login?client=USER">
+                  <div class="mb-3">
+                    <h4> USER </h4>
+                    <label for="exampleInputEmail1" class="form-label">Username</label>
+                    <input type="text" class="form-control" name="User" aria-describedby="text" required>
+                    <div id="emailHelp" class="form-text"></div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                    <input type="password" class="form-control" name="passw" required>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button  type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#register">Register</button>
+                </form>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="register" tabindex="-1" aria-labelledby="modal" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">WELCOM NEW USER</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form method="post" action="/register?client=USER">
+                <div class="mb-3">
+                  
+                  <label  class="form-label">Username</label>
+                  <input type="text" class="form-control" name="User" aria-describedby="text" required>
+                  <div id="emailHelp" class="form-text"></div>
+                </div>
+                <div class="mb-3">
+                  <label  class="form-label">Password</label>
+                  <input type="password" class="form-control" name="passw" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                
+              </form>
+          </div>
+        </div>
+      </div>
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    </body>
+</html>
