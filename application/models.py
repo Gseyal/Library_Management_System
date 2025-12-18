@@ -4,14 +4,14 @@ class admin(db.Model):
     __tablename__='admin'
     admin_id =db.Column(db.Integer, autoincrement=True, primary_key=True,unique=True)
     username=db.Column(db.String, unique=True)
-    password=db.Column(db.String, unique=True)
+    password=db.Column(db.String)
 
 
 class user(db.Model):
     __tablename__='user'
     user_id =db.Column(db.Integer, autoincrement=True, primary_key=True)
     username=db.Column(db.String, unique=True)
-    password=db.Column(db.String, unique=True)
+    password=db.Column(db.String)
     books_issued=db.Column(db.Integer)
 
 
