@@ -89,12 +89,12 @@ Library_Management_System/
 1. **admin**
    - `admin_id` (Primary Key)
    - `username` (Unique)
-   - `password`
+   - `password` (Unique - design limitation in current implementation)
 
 2. **user**
    - `user_id` (Primary Key)
    - `username` (Unique)
-   - `password`
+   - `password` (Unique - design limitation in current implementation)
    - `books_issued` (Integer)
 
 3. **section**
@@ -118,21 +118,21 @@ Library_Management_System/
 
 5. **book_issue**
    - `issue_id` (Primary Key)
-   - `title` (String - book title)
-   - `user_id` (Foreign Key → user)
-   - `admin_id`
-   - `date_issue`
-   - `date_return`
-   - `days_left`
-   - `book_id` (Integer - book identifier)
+   - `title` (String, Foreign Key → books.book_id, Unique)
+   - `user_id` (Integer, Foreign Key → user, Unique)
+   - `admin_id` (Integer)
+   - `date_issue` (Date)
+   - `date_return` (Date)
+   - `days_left` (Integer)
+   - `book_id` (Integer)
 
 6. **allotment**
    - `req_id` (Primary Key)
-   - `book_id` (Integer - book identifier)
-   - `title` (Integer - book title reference)
-   - `user_id` (Foreign Key → user)
-   - `status` (UnderProcess/Accepted/Rejected)
-   - `date`
+   - `book_id` (Integer)
+   - `title` (Integer, Foreign Key → books.Title)
+   - `user_id` (Integer, Foreign Key → user)
+   - `status` (String, default='UnderProcess')
+   - `date` (Date)
 
 ## 🚀 Installation
 
