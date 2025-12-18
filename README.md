@@ -89,12 +89,12 @@ Library_Management_System/
 1. **admin**
    - `admin_id` (Primary Key)
    - `username` (Unique)
-   - `password` (Unique)
+   - `password`
 
 2. **user**
    - `user_id` (Primary Key)
    - `username` (Unique)
-   - `password` (Unique)
+   - `password`
    - `books_issued` (Integer)
 
 3. **section**
@@ -118,18 +118,18 @@ Library_Management_System/
 
 5. **book_issue**
    - `issue_id` (Primary Key)
-   - `title` (Foreign Key → books.book_id)
+   - `title` (String - book title)
    - `user_id` (Foreign Key → user)
    - `admin_id`
    - `date_issue`
    - `date_return`
    - `days_left`
-   - `book_id`
+   - `book_id` (Integer - book identifier)
 
 6. **allotment**
    - `req_id` (Primary Key)
-   - `book_id`
-   - `title` (Foreign Key → books.Title)
+   - `book_id` (Integer - book identifier)
+   - `title` (Integer - book title reference)
    - `user_id` (Foreign Key → user)
    - `status` (UnderProcess/Accepted/Rejected)
    - `date`
@@ -323,11 +323,13 @@ Potential improvements for the system:
 
 - User limit for book issues is tracked but not enforced with a hard limit
 - Password storage should use hashing (currently stored as plain text)
+- Passwords are marked as unique in the database schema, which is unnecessary
+- Foreign key relationships in book_issue and allotment tables have naming inconsistencies
 - File upload functionality stores only URLs/paths (no actual file upload)
 
 ## 📄 License
 
-This project is open source and available under the [MIT License](LICENSE).
+This project is open source. Please check with the repository owner for license details.
 
 ## 👤 Author
 
